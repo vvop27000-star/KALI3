@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KALI TOOL</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+        
+        .container {
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        .logo {
+            margin-bottom: 30px;
+        }
+        
+        .logo-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 20px;
+            margin: 0 auto 20px;
+            display: block;
+            box-shadow: 0 10px 30px rgba(255, 65, 108, 0.4);
+            border: 3px solid #ff416c;
+            object-fit: cover;
+            pointer-events: none;
+        }
+        
+        .logo-text {
+            font-size: 48px;
+            font-weight: 700;
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 40px;
+        }
+        
+        .download-section {
+            margin: 40px 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 6px 20px rgba(255, 65, 108, 0.4);
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 65, 108, 0.6);
+        }
+        
+        .discord-btn {
+            background: #5865F2;
+            box-shadow: 0 6px 20px rgba(88, 101, 242, 0.4);
+        }
+        
+        .discord-btn:hover {
+            box-shadow: 0 8px 25px rgba(88, 101, 242, 0.6);
+        }
+        
+        .footer {
+            margin-top: 40px;
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* رسالة الحماية */
+        .protection-message {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            color: #ff416c;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .protection-message p {
+            margin-bottom: 20px;
+            background: rgba(255, 65, 108, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #ff416c;
+        }
+
+        .close-message {
+            background: #ff416c;
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="https://i.pinimg.com/736x/3a/15/32/3a1532f354eec41f256d81a3f1a21a2c.jpg" alt="KALI TOOL" class="logo-image">
+            <div class="logo-text">KALI TOOL</div>
+            <div class="tagline"></div>
+        </div>
+        
+        <div class="download-section">
+            <a href="https://cdn.discordapp.com/attachments/1399353927677378641/1435984090707918919/kali.exe?ex=691096e6&is=690f4566&hm=671309f829bcdce7b928bb7984fd6f4b5c65dce6d425002d6e7d6791ba4217ed&" 
+               class="btn" 
+               download="kali.exe">
+               تحميل الأداة
+            </a>
+        </div>
+        
+        <div class="discord-section">
+            <a href="https://discord.gg/QE4euJMcug" class="btn discord-btn" target="_blank">انضم إلى الديسكورد</a>
+        </div>
+        
+        <div class="footer">
+            <p></p>
+        </div>
+    </div>
+
+    <!-- رسالة الحماية -->
+    <div class="protection-message" id="protectionMessage">
+        <p>⚠️ غير مسموح لك بفتح أدوات المطور أو نسخ محتوى هذا الموقع!</p>
+        <button class="close-message" onclick="closeProtectionMessage()">موافق</button>
+    </div>
+
+    <script>
+        // منع النسخ والنقر بالزر الأيمن
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            showProtectionMessage("غير مسموح باستخدام الزر الأيمن!");
+        });
+
+        // منع النسخ
+        document.addEventListener('copy', function(e) {
+            e.preventDefault();
+            showProtectionMessage("غير مسموح بنسخ محتوى الموقع!");
+        });
+
+        document.addEventListener('cut', function(e) {
+            e.preventDefault();
+            showProtectionMessage("غير مسموح بقص محتوى الموقع!");
+        });
+
+        // منع السحب
+        document.addEventListener('dragstart', function(e) {
+            e.preventDefault();
+        });
+
+        // منع فتح أدوات المطور
+        document.addEventListener('keydown', function(e) {
+            // F12
+            if (e.keyCode === 123) {
+                e.preventDefault();
+                showProtectionMessage("غير مسموح بفتح أدوات المطور (F12)!");
+                return false;
+            }
+            
+            // Ctrl+Shift+I
+            if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+                e.preventDefault();
+                showProtectionMessage("غير مسموح بفتح أدوات المطور (Ctrl+Shift+I)!");
+                return false;
+            }
+            
+            // Ctrl+Shift+J
+            if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
+                e.preventDefault();
+                showProtectionMessage("غير مسموح بفتح أدوات المطور (Ctrl+Shift+J)!");
+                return false;
+            }
+            
+            // Ctrl+U
+            if (e.ctrlKey && e.keyCode === 85) {
+                e.preventDefault();
+                showProtectionMessage("غير مسموح بعرض مصدر الصفحة (Ctrl+U)!");
+                return false;
+            }
+
+            // Ctrl+Shift+C
+            if (e.ctrlKey && e.shiftKey && e.keyCode === 67) {
+                e.preventDefault();
+                showProtectionMessage("غير مسموح بفتح أداة التفحص (Ctrl+Shift+C)!");
+                return false;
+            }
+        });
+
+        let originalWidth = window.innerWidth;
+        let originalHeight = window.innerHeight;
+
+        setInterval(function() {
+            if (window.innerWidth < originalWidth - 100 || window.innerHeight < originalHeight - 100) {
+                showProtectionMessage("تم اكتشاف فتح أدوات المطور!");
+            }
+        }, 1000);
+
+        // إظهار رسالة الحماية
+        function showProtectionMessage(message) {
+            const messageElement = document.getElementById('protectionMessage');
+            if (message) {
+                messageElement.querySelector('p').textContent = message;
+            }
+            messageElement.style.display = 'flex';
+        }
+
+        // إغلاق رسالة الحماية
+        function closeProtectionMessage() {
+            document.getElementById('protectionMessage').style.display = 'none';
+        }
+
+        // حماية إضافية لمنع فتح وحدة التحكم
+        function protectConsole() {
+            const originalConsole = window.console;
+            window.console = {
+                log: function() { /* لا تفعل شيء */ },
+                warn: function() { /* لا تفعل شيء */ },
+                error: function() { /* لا تفعل شيء */ },
+                info: function() { /* لا تفعل شيء */ }
+            };
+        }
+
+        // تنفيذ الحماية
+        protectConsole();
+    </script>
+</body>
+</html>
