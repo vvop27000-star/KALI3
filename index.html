@@ -1,200 +1,297 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lobby Legands</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { height: 100%; scroll-behavior: smooth; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lobby Legands</title>
+    <style>
+        * {
+            margin: 0; padding: 0; box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    /* منع النسخ والتحديد */
-    body, .container, .section, .logo-text, .btn, .footer {
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
+        body {
+            /* منع نسخ النص عبر CSS */
+            user-select: none; 
+            background: linear-gradient(135deg, #3a0ca3, #7209b7, #4361ee, #4cc9f0);
+            background-size: 400% 400%;
+            animation: gradientMove 10s ease infinite;
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh; /* لضمان أن الخلفية تملأ الشاشة */
+        }
 
-    body {
-      background: linear-gradient(135deg, #3a0ca3, #7209b7, #4361ee, #4cc9f0);
-      background-size: 400% 400%;
-      animation: gradientMove 10s ease infinite;
-      color: #fff;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 40px 15px 100px;
-      overflow-x: hidden;
-    }
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+        /* ===== شريط علوي ===== */
+        nav {
+            position: fixed;
+            top: 0; right: 0; left: 0;
+            background: rgba(30, 0, 60, 0.8); /* زيادة كثافة اللون */
+            backdrop-filter: blur(12px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+            z-index: 1000;
+        }
 
-    .container {
-      width: 100%;
-      max-width: 750px;
-    }
+        nav .logo {
+            font-size: 32px; /* تكبير الخط */
+            font-weight: 900;
+            background: linear-gradient(to right, #fff, #d6b6ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 25px rgba(255,255,255,0.4);
+        }
 
-    .logo-image {
-      width: 180px;
-      height: 180px;
-      border-radius: 25px;
-      margin: 30px auto 15px;
-      display: block;
-      box-shadow: 0 0 40px rgba(172, 106, 255, 0.6);
-      border: 3px solid rgba(255,255,255,0.2);
-      object-fit: cover;
-      pointer-events: none;
-    }
+        /* تنسيق الروابط (تم الإبقاء عليها) */
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
 
-    .logo-text {
-      font-size: 52px;
-      font-weight: 800;
-      background: linear-gradient(to right, #fff, #d6b6ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 25px rgba(255,255,255,0.3);
-      margin-bottom: 8px;
-    }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: 0.3s;
+            position: relative;
+        }
 
-    .tagline {
-      font-size: 18px;
-      color: #e0d9ff;
-      margin-bottom: 40px;
-      text-shadow: 0 0 10px rgba(255,255,255,0.2);
-    }
+        nav ul li a::after { /* تأثير خط أسفل الرابط */
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            right: 0;
+            background-color: #4cc9f0;
+            transition: width 0.3s ease;
+        }
 
-    .section {
-      background: rgba(255, 255, 255, 0.08);
-      padding: 25px;
-      border-radius: 22px;
-      box-shadow: 0 0 25px rgba(255,255,255,0.07);
-      backdrop-filter: blur(10px);
-      margin: 25px 0;
-      transition: 0.3s ease;
-    }
-    .section:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 40px rgba(255,255,255,0.2);
-    }
+        nav ul li a:hover::after {
+            width: 100%;
+        }
 
-    .section h2 {
-      font-size: 26px;
-      margin-bottom: 20px;
-      background: linear-gradient(to right, #fff, #d6b6ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 15px rgba(255,255,255,0.3);
-    }
+        /* ===== علم فلسطين ===== */
+        .flag {
+            position: absolute; /* غيرتها إلى Absolute لتكون جزءًا من التصميم وليس عائماً */
+            top: 100px; /* نزولها للأسفل لتبتعد عن الناف بار */
+            right: 50px;
+            width: 80px;
+            height: auto;
+            z-index: 999;
+            filter: drop-shadow(0 0 15px rgba(255,255,255,0.5));
+            animation: float 5s ease-in-out infinite;
+        }
 
-    .btn {
-      display: inline-block;
-      padding: 14px 35px;
-      margin: 8px;
-      border-radius: 30px;
-      background: linear-gradient(45deg, #b5179e, #7209b7, #560bad);
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 17px;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 0 25px rgba(172, 106, 255, 0.3);
-      transition: 0.3s ease;
-    }
-    .btn:hover {
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 0 35px rgba(255,255,255,0.5);
-    }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(5px) rotate(2deg); }
+        }
+        
+        /* ===== قسم البطل (Hero Section) - إضافة جديدة ===== */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 60vh; /* جعلها تشغل 60% من الشاشة */
+            text-align: center;
+            padding: 0 20px;
+            margin-top: 80px; /* لترك مساحة للشريط العلوي الثابت */
+        }
+        
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.7);
+            animation: fadeIn 2s ease-out;
+        }
 
-    .discord-btn {
-      background: linear-gradient(45deg, #5865F2, #4752C4);
-      box-shadow: 0 0 25px rgba(88,101,242,0.5);
-    }
+        .hero p {
+            font-size: 20px;
+            color: #d6b6ff;
+            max-width: 600px;
+            margin-bottom: 40px;
+            animation: fadeIn 3s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
 
-    .footer {
-      margin-top: 60px;
-      color: #ddd;
-      font-size: 14px;
-      text-shadow: 0 0 10px rgba(255,255,255,0.2);
-    }
+        /* ===== المحتوى ===== */
+        .container {
+            margin-top: 50px; /* تقليل الهامش بعد إضافة Hero */
+            text-align: center;
+            padding: 30px;
+        }
 
-    .dev-lock {
-      position: fixed;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #000;
-      color: #fff;
-      z-index: 9999;
-      font-size: 20px;
-      text-align: center;
-      padding: 20px;
-    }
-  </style>
+        .section {
+            background: rgba(255,255,255,0.08);
+            border-radius: 22px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5); /* ظل أكثر قتامة لتمييزه */
+            backdrop-filter: blur(10px);
+            margin: 25px auto;
+            padding: 30px;
+            max-width: 750px; /* زيادة قليلة للعرض */
+            transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* تأثير انتقال أفضل */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section:hover {
+            transform: translateY(-5px) scale(1.02); /* تأثير أكثر وضوحاً عند التحويم */
+            box-shadow: 0 10px 40px rgba(255,255,255,0.2);
+        }
+
+        .section h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            background: linear-gradient(to right, #4cc9f0, #d6b6ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 40px;
+            margin: 10px;
+            border-radius: 30px;
+            background: linear-gradient(45deg, #b5179e, #7209b7, #560bad);
+            color: #fff;
+            font-weight: 700;
+            font-size: 17px;
+            border: none;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(172,106,255,0.5); /* ظل أوضح */
+            transition: 0.4s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(255,255,255,0.7);
+        }
+
+        .discord-btn {
+            background: linear-gradient(45deg, #5865F2, #4752C4);
+            box-shadow: 0 8px 25px rgba(88,101,242,0.7);
+        }
+        
+        .discord-btn:hover {
+            box-shadow: 0 15px 35px rgba(88,101,242,1);
+        }
+
+        footer {
+            text-align: center;
+            color: #aaa; /* لون أهدأ قليلاً */
+            font-size: 14px;
+            margin: 60px 0 20px;
+            text-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+    </style>
 </head>
 <body>
-  <div class="container" id="mainContent">
-    <img src="https://share.creavite.co/6912100e377d6e26798e0554.gif" alt="Lobby Legands" class="logo-image">
-    <div class="logo-text">Lobby Legands</div>
+    <img src="https://i.pinimg.com/736x/7d/fe/af/7dfeaf9d2a936e6dbd625d737d024b0b.jpg" alt="علم فلسطين" class="flag">
 
-    <div class="section">
-      <h2>تحميل الأداة</h2>
-      <a href="https://github.com/vvop27000-star/tools/raw/refs/heads/main/Lobby%20Legands.exe"
-         class="btn" download>⬇️ تحميل الأداة</a>
+    <nav>
+        <div class="logo">Lobby Legands</div>
+        <ul>
+            <li><a href="#tool">تحميل الأداة</a></li>
+            <li><a href="#pubg">نسخ PUBG</a></li>
+            <li><a href="#emulators">المحاكيات</a></li>
+            <li><a href="#community">مجتمعنا</a></li>
+        </ul>
+    </nav>
+    
+    <div class="hero">
+        <h1>  Lobby Legands</h1>
+        <p> </p>
+        <a href="#tool" class="btn">ابدأ التحميل الآن 🚀</a>
     </div>
 
-    <div class="section">
-      <h2>نسخ PUBG</h2>
-      <a href="https://www.mediafire.com/file/fu8c4rqtcju1e86/PUBG+KR+4.1.rar/file" class="btn" target="_blank">PUBG الكورية 🇰🇷</a>
-      <a href="https://www.mediafire.com/file/6j2xbhy4cc0vw90/PUBG+TW+4.1.rar/file" class="btn" target="_blank">PUBG التايوانية 🇹🇼</a>
-      <a href="https://www.mediafire.com/file/7rqwo1dz23ywrvp/PUBG+VN+4.1.rar/file" class="btn" target="_blank">PUBG الفيتنامية 🇻🇳</a>
+    <div class="container">
+        <section id="tool" class="section">
+            <h2>تحميل الأداة</h2>
+            <p style="margin-bottom: 20px;"></p>
+            <a href="https://github.com/vvop27000-star/tools/raw/refs/heads/main/Lobby%20Legands.exe"
+                class="btn" download>⬇️ تحميل الأداة</a>
+        </section>
+
+        <section id="pubg" class="section">
+            <h2>نسخ PUBG</h2>
+            <p style="margin-bottom: 20px;">اختر نسختك المفضلة من لعبة PUBG .</p>
+            <a href="https://www.mediafire.com/file/fu8c4rqtcju1e86/PUBG+KR+4.1.rar/file" class="btn" target="_blank">PUBG الكورية 🇰🇷</a>
+            <a href="https://www.mediafire.com/file/6j2xbhy4cc0vw90/PUBG+TW+4.1.rar/file" class="btn" target="_blank">PUBG التايوانية 🇹🇼</a>
+            <a href="https://www.mediafire.com/file/7rqwo1dz23ywrvp/PUBG+VN+4.1.rar/file" class="btn" target="_blank">PUBG الفيتنامية 🇻🇳</a>
+        </section>
+
+        <section id="emulators" class="section">
+            <h2>المحاكيات</h2>
+            <p style="margin-bottom: 20px;"> </p>
+            <a href="https://github.com/vvop27000-star/KALI3/raw/refs/heads/main/MuMu_5.0.2_meF7B6C.exe" class="btn" target="_blank">محاكي MuMu 🧩</a>
+            <a href="https://github.com/vvop27000-star/KALI3/raw/refs/heads/main/GLP_installer_1000218456_market.exe" class="btn" target="_blank">محاكي GameLoop 🎮</a>
+            <a href="https://github.com/vvop27000-star/KALI3/raw/refs/heads/main/LDPlayer9_ens_1252_ld.exe" class="btn" target="_blank">محاكي LDPlayer 💻</a>
+        </section>
+
+        <section id="community" class="section">
+            <h2>مجتمعنا</h2>
+            <p style="margin-bottom: 20px;"></p>
+            <a href="https://discord.gg/fGsat5PuJU" class="btn discord-btn" target="_blank">💬 انضم إلى الديسكورد</a>
+        </section>
     </div>
 
-    <div class="section">
-      <h2>المحاكيات</h2>
-      <a href="https://github.com/vvop27000-star/KALI3/raw/refs/heads/main/MuMu_5.0.2_meF7B6C.exe" class="btn" target="_blank">محاكي MuMu 🧩</a>
-      <a href="https://github.com/vvop27000-star/KALI3/raw/refs/heads/main/GLP_installer_1000218456_market.exe" class="btn" target="_blank">محاكي GameLoop 🎮</a>
-      <a href="https://github.com/vvop27000-star/KALI3/raw/refs/heads/main/LDPlayer9_ens_1252_ld.exe" class="btn" target="_blank">محاكي LDPlayer 💻</a>
-    </div>
+    <footer>© 2025 Lobby Legands — جميع الحقوق محفوظة</footer>
 
-    <div class="section">
-      <h2>مجتمعنا</h2>
-      <a href="https://discord.gg/fGsat5PuJU" class="btn discord-btn" target="_blank">💬 انضم إلى الديسكورد</a>
-    </div>
+    <script>
+        // 1. منع قائمة سياق النقر بزر الفأرة الأيمن
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
 
-  </div>
+        // 2. منع مفاتيح أدوات المطور (F12، Ctrl+Shift+I، إلخ)
+        document.addEventListener('keydown', function(e) {
+            // F12
+            if (e.key === 'F12') {
+                e.preventDefault();
+            }
 
-  <script>
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    ['copy','cut','paste','selectstart','dragstart'].forEach(evt =>
-      document.addEventListener(evt, e => e.preventDefault())
-    );
+            // Ctrl+Shift+I (لفتح الأدوات)
+            if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+                e.preventDefault();
+            }
+            
+            // Ctrl+Shift+J (لفتح الكونسول في بعض المتصفحات)
+            if (e.ctrlKey && e.shiftKey && e.key === 'J') {
+                e.preventDefault();
+            }
 
-    document.addEventListener('keydown', e => {
-      if (e.keyCode === 123 || 
-          (e.ctrlKey && e.shiftKey && ['i','j','c'].includes(e.key.toLowerCase())) ||
-          (e.ctrlKey && ['u','s'].includes(e.key.toLowerCase()))
-      ) e.preventDefault();
-    });
+            // Ctrl+U (لمشاهدة مصدر الصفحة)
+            if (e.ctrlKey && e.key === 'U') {
+                e.preventDefault();
+            }
+        });
 
-    (function detectDevTools() {
-      let last = false;
-      setInterval(() => {
-        let opened = (window.outerWidth - window.innerWidth > 160) ||
-                     (window.outerHeight - window.innerHeight > 160);
-        if (opened && !last)
-          document.body.innerHTML = '<div class="dev-lock">🚫 ممنوع فتح أدوات المطور — الوصول إلى الكود محظور.</div>';
-        last = opened;
-      }, 800);
-    })();
-  </script>
+        // 3. منع النسخ على مستوى المتصفح (بالإضافة إلى CSS)
+        document.addEventListener('copy', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+            return false;
+        });
+    </script>
 </body>
 </html>
