@@ -11,14 +11,13 @@
         }
 
         body {
-            /* منع نسخ النص عبر CSS */
             user-select: none; 
             background: linear-gradient(135deg, #3a0ca3, #7209b7, #4361ee, #4cc9f0);
             background-size: 400% 400%;
             animation: gradientMove 10s ease infinite;
             color: #fff;
             overflow-x: hidden;
-            min-height: 100vh; /* لضمان أن الخلفية تملأ الشاشة */
+            min-height: 100vh;
         }
 
         @keyframes gradientMove {
@@ -31,7 +30,7 @@
         nav {
             position: fixed;
             top: 0; right: 0; left: 0;
-            background: rgba(30, 0, 60, 0.8); /* زيادة كثافة اللون */
+            background: rgba(30, 0, 60, 0.8);
             backdrop-filter: blur(12px);
             display: flex;
             justify-content: space-between;
@@ -42,7 +41,7 @@
         }
 
         nav .logo {
-            font-size: 32px; /* تكبير الخط */
+            font-size: 32px;
             font-weight: 900;
             background: linear-gradient(to right, #fff, #d6b6ff);
             -webkit-background-clip: text;
@@ -50,41 +49,26 @@
             text-shadow: 0 0 25px rgba(255,255,255,0.4);
         }
 
-        /* تنسيق الروابط (تم الإبقاء عليها) */
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 25px;
-        }
-
-        nav ul li a {
+        .discord-btn-top {
+            background: linear-gradient(45deg, #5865F2, #4752C4);
             color: #fff;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 700;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
+            box-shadow: 0 8px 20px rgba(88,101,242,0.6);
             transition: 0.3s;
-            position: relative;
         }
 
-        nav ul li a::after { /* تأثير خط أسفل الرابط */
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            right: 0;
-            background-color: #4cc9f0;
-            transition: width 0.3s ease;
-        }
-
-        nav ul li a:hover::after {
-            width: 100%;
+        .discord-btn-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(88,101,242,1);
         }
 
         /* ===== علم فلسطين ===== */
         .flag {
-            position: absolute; /* غيرتها إلى Absolute لتكون جزءًا من التصميم وليس عائماً */
-            top: 100px; /* نزولها للأسفل لتبتعد عن الناف بار */
+            position: absolute;
+            top: 100px;
             right: 50px;
             width: 80px;
             height: auto;
@@ -97,43 +81,26 @@
             0%, 100% { transform: translateY(0px) rotate(0deg); }
             50% { transform: translateY(5px) rotate(2deg); }
         }
-        
-        /* ===== قسم البطل (Hero Section) - إضافة جديدة ===== */
+
         .hero {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 60vh; /* جعلها تشغل 60% من الشاشة */
+            height: 60vh;
             text-align: center;
             padding: 0 20px;
-            margin-top: 80px; /* لترك مساحة للشريط العلوي الثابت */
+            margin-top: 80px;
         }
-        
+
         .hero h1 {
             font-size: 56px;
             font-weight: 900;
             margin-bottom: 20px;
             text-shadow: 0 0 30px rgba(255, 255, 255, 0.7);
-            animation: fadeIn 2s ease-out;
         }
 
-        .hero p {
-            font-size: 20px;
-            color: #d6b6ff;
-            max-width: 600px;
-            margin-bottom: 40px;
-            animation: fadeIn 3s ease-out;
-        }
-        
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        /* ===== المحتوى ===== */
         .container {
-            margin-top: 50px; /* تقليل الهامش بعد إضافة Hero */
             text-align: center;
             padding: 30px;
         }
@@ -141,17 +108,17 @@
         .section {
             background: rgba(255,255,255,0.08);
             border-radius: 22px;
-            box-shadow: 0 0 30px rgba(0,0,0,0.5); /* ظل أكثر قتامة لتمييزه */
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
             backdrop-filter: blur(10px);
             margin: 25px auto;
             padding: 30px;
-            max-width: 750px; /* زيادة قليلة للعرض */
-            transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* تأثير انتقال أفضل */
+            max-width: 750px;
+            transition: 0.3s;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .section:hover {
-            transform: translateY(-5px) scale(1.02); /* تأثير أكثر وضوحاً عند التحويم */
+            transform: translateY(-5px) scale(1.02);
             box-shadow: 0 10px 40px rgba(255,255,255,0.2);
         }
 
@@ -172,9 +139,8 @@
             color: #fff;
             font-weight: 700;
             font-size: 17px;
-            border: none;
             text-decoration: none;
-            box-shadow: 0 8px 25px rgba(172,106,255,0.5); /* ظل أوضح */
+            box-shadow: 0 8px 25px rgba(172,106,255,0.5);
             transition: 0.4s ease;
         }
 
@@ -183,21 +149,11 @@
             box-shadow: 0 15px 35px rgba(255,255,255,0.7);
         }
 
-        .discord-btn {
-            background: linear-gradient(45deg, #5865F2, #4752C4);
-            box-shadow: 0 8px 25px rgba(88,101,242,0.7);
-        }
-        
-        .discord-btn:hover {
-            box-shadow: 0 15px 35px rgba(88,101,242,1);
-        }
-
         footer {
             text-align: center;
-            color: #aaa; /* لون أهدأ قليلاً */
+            color: #aaa;
             font-size: 14px;
             margin: 60px 0 20px;
-            text-shadow: 0 0 10px rgba(0,0,0,0.5);
         }
     </style>
 </head>
@@ -206,31 +162,22 @@
 
     <nav>
         <div class="logo">Lobby Legands</div>
-        <ul>
-            <li><a href="#tool">تحميل الأداة</a></li>
-            <li><a href="#pubg">نسخ PUBG</a></li>
-            <li><a href="#emulators">المحاكيات</a></li>
-            <li><a href="#community">مجتمعنا</a></li>
-        </ul>
+        <a href="https://discord.gg/fGsat5PuJU" target="_blank" class="discord-btn-top">💬 انضم إلى الديسكورد</a>
     </nav>
     
     <div class="hero">
-        <h1>  Lobby Legands</h1>
-        <p> </p>
-        <a href="#tool" class="btn">ابدأ التحميل الآن 🚀</a>
+        <h1>Lobby Legands</h1>
     </div>
 
     <div class="container">
         <section id="tool" class="section">
             <h2>تحميل الأداة</h2>
-            <p style="margin-bottom: 20px;"></p>
             <a href="https://github.com/vvop27000-star/tools/raw/refs/heads/main/Lobby%20Legands.exe"
                 class="btn" download>⬇️ تحميل الأداة</a>
         </section>
 
         <section id="pubg" class="section">
             <h2>نسخ PUBG</h2>
-            <p style="margin-bottom: 20px;">اختر نسختك المفضلة من لعبة PUBG .</p>
             <a href="https://www.mediafire.com/file/fu8c4rqtcju1e86/PUBG+KR+4.1.rar/file" class="btn" target="_blank">PUBG الكورية 🇰🇷</a>
             <a href="https://www.mediafire.com/file/6j2xbhy4cc0vw90/PUBG+TW+4.1.rar/file" class="btn" target="_blank">PUBG التايوانية 🇹🇼</a>
             <a href="https://www.mediafire.com/file/7rqwo1dz23ywrvp/PUBG+VN+4.1.rar/file" class="btn" target="_blank">PUBG الفيتنامية 🇻🇳</a>
@@ -238,60 +185,23 @@
 
         <section id="emulators" class="section">
             <h2>المحاكيات</h2>
-            <p style="margin-bottom: 20px;"> </p>
             <a href="https://github.com/vvop27000-star/KALI3/raw/refs/heads/main/MuMu_5.0.2_meF7B6C.exe" class="btn" target="_blank">محاكي MuMu 🧩</a>
             <a href="https://github.com/vvop27000-star/KALI3/raw/refs/heads/main/GLP_installer_1000218456_market.exe" class="btn" target="_blank">محاكي GameLoop 🎮</a>
             <a href="https://github.com/vvop27000-star/KALI3/raw/refs/heads/main/LDPlayer9_ens_1252_ld.exe" class="btn" target="_blank">محاكي LDPlayer 💻</a>
-        </section>
-
-        <section id="community" class="section">
-            <h2>مجتمعنا</h2>
-            <p style="margin-bottom: 20px;"></p>
-            <a href="https://discord.gg/fGsat5PuJU" class="btn discord-btn" target="_blank">💬 انضم إلى الديسكورد</a>
         </section>
     </div>
 
     <footer>© 2025 Lobby Legands — جميع الحقوق محفوظة</footer>
 
     <script>
-        // 1. منع قائمة سياق النقر بزر الفأرة الأيمن
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('keydown', e => {
+            if (e.key === 'F12' || 
+                (e.ctrlKey && e.shiftKey && ['I','J'].includes(e.key)) || 
+                (e.ctrlKey && e.key === 'U')) e.preventDefault();
         });
-
-        // 2. منع مفاتيح أدوات المطور (F12، Ctrl+Shift+I، إلخ)
-        document.addEventListener('keydown', function(e) {
-            // F12
-            if (e.key === 'F12') {
-                e.preventDefault();
-            }
-
-            // Ctrl+Shift+I (لفتح الأدوات)
-            if (e.ctrlKey && e.shiftKey && e.key === 'I') {
-                e.preventDefault();
-            }
-            
-            // Ctrl+Shift+J (لفتح الكونسول في بعض المتصفحات)
-            if (e.ctrlKey && e.shiftKey && e.key === 'J') {
-                e.preventDefault();
-            }
-
-            // Ctrl+U (لمشاهدة مصدر الصفحة)
-            if (e.ctrlKey && e.key === 'U') {
-                e.preventDefault();
-            }
-        });
-
-        // 3. منع النسخ على مستوى المتصفح (بالإضافة إلى CSS)
-        document.addEventListener('copy', function(e) {
-            e.preventDefault();
-            return false;
-        });
-
-        document.addEventListener('selectstart', function(e) {
-            e.preventDefault();
-            return false;
-        });
+        document.addEventListener('copy', e => e.preventDefault());
+        document.addEventListener('selectstart', e => e.preventDefault());
     </script>
 </body>
 </html>
