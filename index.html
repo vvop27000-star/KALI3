@@ -23,20 +23,11 @@
         }
 
         @keyframes gradientMove {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        /* NAVBAR */
         nav {
             position: fixed;
             top: 0;
@@ -52,16 +43,15 @@
             z-index: 1000;
         }
 
-            nav .logo {
-                font-size: 32px;
-                font-weight: 900;
-                background: linear-gradient(to right, #fff, #d6b6ff);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                text-shadow: 0 0 25px rgba(255,255,255,0.4);
-            }
+        nav .logo {
+            font-size: 32px;
+            font-weight: 900;
+            background: linear-gradient(to right, #fff, #d6b6ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 25px rgba(255,255,255,0.4);
+        }
 
-        /* Discord Button LEFT */
         .discord-btn-top {
             position: absolute;
             left: 20px;
@@ -74,11 +64,10 @@
             box-shadow: 0 8px 20px rgba(88,101,242,0.6);
             transition: 0.3s;
         }
-
-            .discord-btn-top:hover {
-                transform: translateY(-3px);
-                box-shadow: 0 15px 35px rgba(88,101,242,1);
-            }
+        .discord-btn-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(88,101,242,1);
+        }
 
         .flag {
             position: absolute;
@@ -90,13 +79,8 @@
         }
 
         @keyframes float {
-            0%, 100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-
-            50% {
-                transform: translateY(5px) rotate(2deg);
-            }
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(5px) rotate(2deg); }
         }
 
         .container {
@@ -114,21 +98,19 @@
             padding: 30px;
             max-width: 750px;
             transition: 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255,255,255,0.1);
         }
-
-            .section:hover {
-                transform: translateY(-5px) scale(1.02);
-                box-shadow: 0 10px 40px rgba(255,255,255,0.2);
-            }
-
-            .section h2 {
-                margin-bottom: 20px;
-                font-size: 28px;
-                background: linear-gradient(to right, #4cc9f0, #d6b6ff);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }
+        .section:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 40px rgba(255,255,255,0.2);
+        }
+        .section h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            background: linear-gradient(to right, #4cc9f0, #d6b6ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
         .btn {
             display: inline-block;
@@ -143,11 +125,18 @@
             box-shadow: 0 8px 25px rgba(172,106,255,0.5);
             transition: 0.4s ease;
         }
+        .btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(255,255,255,0.7);
+        }
 
-            .btn:hover {
-                transform: translateY(-5px) scale(1.05);
-                box-shadow: 0 15px 35px rgba(255,255,255,0.7);
-            }
+        .bypass-img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 25px rgba(0,0,0,0.6);
+        }
 
         footer {
             text-align: center;
@@ -159,7 +148,7 @@
 </head>
 <body>
 
-    <img src="https://i.pinimg.com/736x/7d/fe/af/7dfeaf9d2a936e6dbd625d737d024b0b.jpg" alt="Palestine Flag" class="flag">
+    <img src="https://i.pinimg.com/736x/7d/fe/af/7dfeaf9d2a936e6dbd625d737d024b0b.jpg" class="flag">
 
     <nav>
         <div class="logo">Lobby Legands</div>
@@ -168,41 +157,36 @@
 
     <div class="container">
 
-        <section id="tool" class="section">
+        <section class="section">
             <h2>Download Tool</h2>
-            <a href="https://github.com/vvop27000-star/tools/raw/refs/heads/main/Lobby%20Legands.exe"
-               class="btn" download>⬇️ Download Tool</a>
+            <a href="https://github.com/vvop27000-star/tools/raw/refs/heads/main/Lobby%20Legands.exe" class="btn">⬇️ Download Tool</a>
         </section>
 
-        <section id="pubg" class="section">
+        <section class="section">
             <h2>PUBG Versions</h2>
             <a href="#" class="btn">PUBG Korea 🇰🇷</a>
             <a href="#" class="btn">PUBG Taiwan 🇹🇼</a>
             <a href="#" class="btn">PUBG Vietnam 🇻🇳</a>
         </section>
 
-        <section id="emulators" class="section">
+        <section class="section">
             <h2>Emulators</h2>
             <a href="#" class="btn">MuMu Emulator 🧩</a>
             <a href="#" class="btn">GameLoop Emulator 🎮</a>
             <a href="#" class="btn">LDPlayer Emulator 💻</a>
         </section>
 
+        <section class="section">
+            <h2>Bypass 𝐋𝐨𝐛𝐛𝐲 𝐋𝐞𝐠𝐞𝐧𝐝𝐬</h2>
+            <img class="bypass-img" src="https://media.discordapp.net/attachments/1388934326992769045/1438933488710451231/Screenshot_31.png?format=webp&quality=lossless">
+            <a href="https://github.com/vvop27000-star/KALI3/raw/refs/heads/main/LobbyLegends.rar" class="btn">⬇️ Download Bypass</a>
+        </section>
+
     </div>
 
-    <footer style="
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    color: #aaa;
-    font-size: 14px;
-    padding: 10px 0;
-">
+    <footer style="position: fixed; bottom: 0; left: 0; right: 0; text-align: center; color: #aaa; font-size: 14px; padding: 10px 0;">
         © 2025 Lobby Legands — All rights reserved
     </footer>
-
 
 </body>
 </html>
